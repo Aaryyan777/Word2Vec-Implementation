@@ -17,12 +17,12 @@ This project reproduces the core results of Word2Vec using PyTorch, training on 
 ### 1. t-SNE Projection (Top 300 Words)
 Below is a t-SNE visualization of the learned embeddings. Notice how semantically related words cluster together (e.g., numbers, family relations, geographical locations).
 
-![t-SNE Visualization](plots/tsne_visualization.png)
+![t-SNE Visualization](tsne_visualization.png)
 
 ### 2. Training Loss
 The model utilizes **Negative Sampling** to efficiently approximate the Softmax loss. The loss consistently decreases over 5 epochs.
 
-![Loss Curve](plots/loss_curve.png)
+![Loss Curve](loss_curve.png)
 
 ---
 
