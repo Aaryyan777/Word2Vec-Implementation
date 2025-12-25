@@ -12,7 +12,7 @@ This project reproduces the core results of Word2Vec using PyTorch, training on 
 
 ---
 
-## 📊 Visualizations
+##  Visualizations
 
 ### 1. t-SNE Projection (Top 300 Words)
 Below is a t-SNE visualization of the learned embeddings. Notice how semantically related words cluster together (e.g., numbers, family relations, geographical locations).
@@ -26,7 +26,7 @@ The model utilizes **Negative Sampling** to efficiently approximate the Softmax 
 
 ---
 
-## 🧠 Model Architecture
+##  Model Architecture
 
 This implementation uses the **Skip-gram** architecture, which predicts context words given a center word.
 
@@ -49,7 +49,7 @@ $$ \log \sigma(v'_{w_O}{}^\top v_{w_I}) + \sum_{i=1}^{k} \mathbb{E}_{w_i \sim P_
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```bash
 word2vec_impl/
@@ -71,7 +71,7 @@ word2vec_impl/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### 1. Installation
 Clone the repository and install dependencies:
@@ -110,7 +110,7 @@ python word2vec_impl/src/evaluate.py
 
 ---
 
-## 📈 Results
+##  Results
 
 ### Semantic Analogies
 One of the most famous properties of Word2Vec is its ability to solve analogies using vector arithmetic (e.g., `King - Man + Woman = ?`).
