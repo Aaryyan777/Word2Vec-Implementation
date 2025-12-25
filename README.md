@@ -49,6 +49,30 @@ $$ \log \sigma(v'_{w_O}{}^\top v_{w_I}) + \sum_{i=1}^{k} \mathbb{E}_{w_i \sim P_
 
 ---
 
+##  Results
+
+### Semantic Analogies
+One of the most famous properties of Word2Vec is its ability to solve analogies using vector arithmetic (e.g., `King - Man + Woman = ?`).
+
+| Analogy | Equation | Result | Score |
+| :--- | :--- | :--- | :--- |
+| **Royalty** | `king` - `man` + `woman` | **`queen`** (or `empress`) | ~0.82 |
+| **Capital** | `paris` - `france` + `germany` | **`berlin`** | ~0.83 |
+| **Sentiment** | `better` - `good` + `bad` | **`worse`** (or `bad`) | ~0.74 |
+
+*(Note: Exact results may vary slightly due to stochastic training)*
+
+### Word Similarities
+The model successfully captures semantic clusters.
+
+| Target Word | Top Similar Words (Cosine Similarity) |
+| :--- | :--- |
+| **`france`** | `italy` (0.83), `germany` (0.83), `spain` (0.81) |
+| **`four`** | `five` (0.92), `three` (0.91), `seven` (0.91) |
+| **`american`** | `actress` (0.87), `activist` (0.85), `actor` (0.84) |
+
+---
+
 ##  Project Structure
 
 ```bash
@@ -110,35 +134,9 @@ python word2vec_impl/src/evaluate.py
 
 ---
 
-##  Results
-
-### Semantic Analogies
-One of the most famous properties of Word2Vec is its ability to solve analogies using vector arithmetic (e.g., `King - Man + Woman = ?`).
-
-| Analogy | Equation | Result | Score |
-| :--- | :--- | :--- | :--- |
-| **Royalty** | `king` - `man` + `woman` | **`queen`** (or `empress`) | ~0.82 |
-| **Capital** | `paris` - `france` + `germany` | **`berlin`** | ~0.83 |
-| **Sentiment** | `better` - `good` + `bad` | **`worse`** (or `bad`) | ~0.74 |
-
-*(Note: Exact results may vary slightly due to stochastic training)*
-
-### Word Similarities
-The model successfully captures semantic clusters.
-
-| Target Word | Top Similar Words (Cosine Similarity) |
-| :--- | :--- |
-| **`france`** | `italy` (0.83), `germany` (0.83), `spain` (0.81) |
-| **`four`** | `five` (0.92), `three` (0.91), `seven` (0.91) |
-| **`american`** | `actress` (0.87), `activist` (0.85), `actor` (0.84) |
-
----
-
 ## ⚙️ Implementation Details
 
 *   **Subsampling:** Frequent words are subsampled using the formula $P(w_i) = 1 - \sqrt{\frac{t}{f(w_i)}}$ to improve training speed and embedding quality for rare words.
-*   **Dynamic Window:** The context window size is randomly sampled from $[1, \text{window\_size}]$ for each training step, effectively weighting closer words more heavily.
+*   **Dynamic Window:** The context window size is randomly sampled from $[1, \mathrm{window\_size}]$ for each training step, effectively weighting closer words more heavily.
 *   **Vectorized Negative Sampling:** Negative samples are drawn from the unigram distribution raised to the power of 0.75, pre-calculated for efficiency.
 
-## 🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
