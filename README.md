@@ -134,7 +134,7 @@ python word2vec_impl/src/evaluate.py
 
 ---
 
-## ⚙️ Implementation Details
+##  Implementation Details
 
 *   **Subsampling:** Frequent words are subsampled using the formula $P(w_i) = 1 - \sqrt{\frac{t}{f(w_i)}}$ to improve training speed and embedding quality for rare words.
 *   **Dynamic Window:** The context window size is randomly sampled from $[1, \mathrm{window\_size}]$ for each training step, effectively weighting closer words more heavily.
